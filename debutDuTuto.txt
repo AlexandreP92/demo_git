@@ -1,0 +1,83 @@
+Vous voici dans le début du tutoriel. Nous allons ici reprendre point par point le plan que vous pouvez retrouver dans le fichier README.md.
+
+I - COMMIT 
+
+Les "comités" servent à garder une trace des modifications apportées à un projet. Chaque commit crée une version du code/texte à laquelle on peut se positionner.
+Mot clé : Historique. 
+Une fois un fichier créé - modifié - ajouté au répertoire : il faut le commit.
+Commande : 'git commit -m "msg pour décrire le commit"'.
+
+II - LIRE L'HISTORIQUE
+
+Pour voir les séries de modifications on utilise la commande 'git log'
+Pour chaque commit on a une série de numéros et lettres qu'on appelle le SHA et qui identifie de façon unique un commit
+La commande 'q' permet de quitter le log. 
+
+III - SE POSITIONNER DANS UN COMMIT DONNÉ 
+
+On utilise la commande : 'git checkout "SHA"'. 
+
+IV - RÉCUPÉRER DU CODE D'UN AUTRE REPOSITORY
+
+Pour récupérer sur sa machine le code/texte d'un projet qui ne nous appartient pas, on se rend sur Git Hub pour récupérer l'URL (HTTPS) du répertoire. 
+Puis dans notre console : 
+- On crée un dossier ('mkdir dossierTest')
+- On se place dans notre dossier ('cd dossierTest/')
+- On clone le projet avec l'URL qu'on a récupéré (' git clone "lien"') 
+- On vérifie la liste des fichiers et répertoires dans le dossier courant (' ls ')
+- On peut à présent modifier et de nouveau commit les fichiers qu'on modifie. 
+
+V - CRÉER SON REPOSITORY 
+
+Sur Git Hub, quand on crée son repository il faut cocher la case pour l'initialisation du README, cela va permettre d'avoir déjà un fichier quand on va cloner. 
+Puis dans votre console : 'git clone "lien"' 
+
+VI - ENVOYER SON CODE SUR GIT HUB 
+
+Lorsque votre code/texte est sur votre machine, il est important dans l'envoyer sur une remote, c'est-à-dire un autre ordinateur que vous possédez ou pas (grâce à des services externes comme Git Hub par exemple) pour limiter les risques. 
+La commande : 'git push origin master' (origin est le nom par défaut du remote/master est la branche principale par défaut) 
+
+VII - RÉCUPÉRER DES MODIFICATIONS 
+
+Si on travaille à plusieurs sur un projet, il n'est pas forcément judicieux d'utiliser 'git clone' car ça prendrait tout le projet à chaque fois. Pour pallier à ce problème on utilise 'git pull'. 
+La commande : 'git pull origin master' permet de récupérer des modifications qui ont été faites directement sur Git Hub. Il faut synchroniser le plus possible son remote avec sa machine locale. On peut utiliser la commande 'git log' pour voir qui a fait les modifications par la suite.
+
+VIII - CRÉER DES BRANCHES 
+
+Une branche permet de diverger du code principal pour faire des tests ou travailler de son côté par exemple. 
+La commande : 'git branch' permet de voir sur quelle branche on se trouve (par défaut master) 
+La commande : 'git branche "maBranche"' permet de créer une branche 
+La commande : 'git checkout "maBranche"' permet de se positionner sur la branche qu'on vient de créer 
+La commande : git branch -d "maBranche" permet de supprimer sa branche 
+
+IX - FUSIONNER DES BRANCHES 
+
+Il est important de ne pas s'éparpiller dans ses branches. Une fois les tests et le travail de groupe terminé, on réunit tout sur la branche principale (par défaut master). 
+La commande : 'git merge "maBranche"' permet de merger la branche maBranche sur master.
+
+X - RÉSOUDRE UN CONFLIT 
+
+Quand on travaille à plusieurs sur un même fichier en même temps, il se peut qu'une ligne d'un même fichier soit merge sur la branche master mais ne corresponde pas, on a donc un conflit.
+Pour résoudre un conflit on peut utiliser la commande 'git status' qui va nous dire dans quel fichier se trouve le conflit puis modifier le fichier directement. Après cela, on utilisera la commande 'git commit' sans message, Git va le faire par défaut. 
+
+XI - RETROUVER QUI A FAIT UNE MODIFICATION 
+
+La commande 'git log' n'est pas assez précise sur un projet ou on a beaucoup de commit.
+La commande : 'git blame "README.md"' nous permettra d'avoir le début du SHA qu'on pourra retracé dans 'git log'. On peut aussi c/c le SHA et faire 'git show "SHA"' pour voir les modifications directement.
+
+XII - IGNORER DES FICHIERS 
+
+Certains fichiers comprennent des variables de configuration, des mots de passe ou autre qu'il ne faut pas laisser ouvert au public. Or, on ne peut pas crypter nos fichiers sur Git Hub. Cependant, on peut créer le fichier '.gitignore' pour y lister les fichiers compromettants. 
+Pour cela : 'touch .gitignore' 'open -a TextEdit .gitignore' Puis on ajoute le nom des fichiers comme "monFichierMotDePasse.txt".
+
+XIII - CONTRIBUER À DES PROJETS OPEN SOURCE 
+
+Pour contribuer à un projet Open Source, on "Fork" le projet pour le dupliquer sur son compte. Puis comme d'habitude, on le clone à partir du lien HTTPS. 
+Généralement pour les projets Open Source il y a une partie "Contributing" dans le bas du README dans lequel le propriétaire liste les étapes à suivre pour pouvoir contribuer à son projet. Pour la plupart, on crée une branche avec le nom de la modification qu'on fait : 
+'Git push origine "nom de la branche"'. Sur notre Git Hub ensuite on appuie sur "Compare & Pull Request" avec un message expliquant notre contribution au propriétaire du projet. Git nous informera si oui ou non notre contribution a été validée.  
+
+ANNEXES - À SAVOIR 
+
+La commande 'touch' permet de créer un fichier 
+La commande 'git init' permet de créer un repository (initialisation) 
+La commande 'open -a TextEdit monFichier.txt' permet d'ouvrir monFichier.txt dans l'application TextEdit pour le modifier
