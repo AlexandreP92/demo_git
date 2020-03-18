@@ -82,3 +82,5 @@ La commande 'touch' permet de créer un fichier
 La commande 'git init' permet de créer un repository (initialisation) 
 La commande 'open -a TextEdit monFichier.txt' permet d'ouvrir monFichier.txt dans l'application TextEdit pour le modifier
 La commande 'git rm -f "fichier"' permet de forcer la suppression d'un fichier
+
+P.S : Ce auto n'est pas terminé, n'hésitez pas à le compléter !
